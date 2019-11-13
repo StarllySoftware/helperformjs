@@ -1,0 +1,470 @@
+<!DOCTYPE html>
+<html>
+    <head>        
+        <title>HelperForm.js</title>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="shortcut icon" href="assets/img/logo.png" />
+        <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.css" integrity="sha256-vZ3SaLOjnKO/gGvcUWegySoDU6ff33CS5i9ot8J9Czk=" crossorigin="anonymous" />
+        <link href="assets/css/docs.css" rel="stylesheet" type="text/css"/>
+    </head>
+    <body data-base="/">
+        <div class="navbar navbar-toggleable-md fixed-top navbar-inverse bg-primary">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="container">
+                <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <a href="/" class="navbar-brand">HelperForm.js</a>
+                    <ul class="nav navbar-nav ml-auto">
+                        <li class="nav-pills">
+                            <a class="btn btn-outline-info cursor-pointer" href="assets/js/helperform.js.zip"><i class="fa fa-fw fa-download"></i> Descargar</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>        
+        <main>
+            <div class="text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12 text-center text-md-left">
+                            <h1 class="mb-3 title-index bd-text-dark-bright title"><span class="color1">Hel</span><span class="color2">per</span><span class="color3">Form</span><span class="color3">.js</span></h1>
+                            <p class="lead">
+                                Llenar formularios y obtener información en objetos JSON.
+                            </p>
+                            <p class="lead mb-4 subdescription text-justify" >
+                                Con esta librería desarrollada en Vanilla Javascript podrás obtener dos prototipos (<code>.getFormData()</code> & <code>.fillForm(obj)</code>) que te van a servir cuando tengas que implementar desarrollos con JQuery o con Vanilla Javascript (Javascript Nativo).
+                                A continuación verás un ejemplo de lo que hace este pequeño paquete que no debería faltar en tus desarrollos.
+                                <br/>
+                                <br/>
+                                Si deseas aprender como integrar y usar <b>HelperForm.js</b> rápidamente te recomendamos que veas el <a href="#"><i class="fa fa-fw fa-youtube-play"></i> vídeo tutorial</a>.
+                            </p>
+                        </div>
+                        <div class="col-md-12 text-justify p-t-25">
+                            <h3>¿Cómo Integrar HelperForm.js?</h3>
+                            <p>
+                                Para integrar HelperForm.js solo debes <a href="assets/js/helperform.js.zip">descargar HelperForm.js</a> e integrarlo en tu proyecto como se muestra a continuación:
+                            <div class="bd-clipboard"><button type="button" class="btn-clipboard" title="" data-original-title="Copiar al portapapeles">Copiar</button></div>
+                            <textarea id="txtIntegrar"><script src="https://cdn.deplyn.com/helperform.min.js"></script></textarea>                            
+                            </p>
+                            <h3 class="m-t-35">Obtener información de un formulario <code>.getFormData()</code></h3>
+                            <p class="get-form-data">
+                                Con este prototipo podrás seleccionar un formulario o contenedor y obtener la información que contiene sus elementos de entrada (input, select y/o textarea).
+                                <br/>
+                                <br/>
+                                Para usar este prototipo solo tendrás que buscar un elemento en el DOM, para esto podrás hacer uso de JQuery o Vanilla Javascript como se muestra a continuación y en el Ejemplo 1.
+                                <textarea class="javascript-code" id="txt1">//JQuery:
+$('#form').getFormData();
+
+//Vanilla Javascript:
+document.querySelector('#form').getFormData();
+                                </textarea>
+                            </p>
+                        </div>
+                        <div class="col-md-12 text-left m-b-10 m-t-25 p-t-25">
+                            <h3>Ejemplo 1: (<code>.getFormData()</code>) Obtener datos formulario.</h3>
+                            <p>
+                                En este ejemplo podrás observar un formulario con algunos campos, si alteras la información y presionas el botón obtener datos podrás ver a continuación que en la consola de la derecha se imprimirá el objeto que ha obtenido el prototipo.
+                                <br/>
+                                <br/>
+                                Lo único que debes agregar en tus etiquetas de html específicamente en los atributos de cada elemento de entrada (input, select, textarea, etc) es el atributo <code>name=""</code> en el cual definirás el nombre que deseas que aparezca en la llave final del objeto que te proporcionará el prototipo <code>.getFormData()</code> ejemplo: <code>name="descripcion"</code>.
+                                <br/>
+                                Si verificas en el ejemplo 1 a continuación el apartado <b>HTML</b> encontrarás un formulario común con una maquetación sencilla en donde hemos usado Bootstrap el cual es solo por preferencia ya que esta librería no requiere ningún Framework o recurso adicional de terceros.
+                                En esta maquetación podrás observar que los <code>name=""</code> de cada elemento son las llaves del objeto que se muestra en la consola.
+                                <br/>
+                                En el ejemplo también podrás ver objetos anidados, en donde cada nodo debe ser separado por un punto "." ejemplo: <code>name="pais.codigo_pais"</code>.
+                            </p>
+                        </div>
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs code-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#preview" role="tab" aria-controls="home" aria-selected="true">Vista previa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="html-tab" data-toggle="tab" href="#html" role="tab" aria-controls="home" aria-selected="true">HTML</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="javascript-tab" data-toggle="tab" href="#javascript" role="tab" aria-controls="javascript" aria-selected="false">Javascript</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content text-left" id="myTabContent">
+                                <div class="tab-pane fade show active" id="preview" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form id="formExample1" class="text-left form-example">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Nombres:</label>
+                                                            <input type="text" placeholder="Nombres" class="form-control" name="nombres" value="John"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Apellidos:</label>
+                                                            <input type="text" placeholder="Apellidos" class="form-control" name="apellidos" value="Vanegas" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">País:</label>
+                                                            <select class="form-control" name="pais.codigo_pais">
+                                                                <option value="">Seleccione</option>
+                                                                <option value="CO" selected="selected">Colombia</option>
+                                                                <option value="ES">España</option>
+                                                                <option value="US">Estados Unidos</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Teléfono:</label>
+                                                            <input type="text" class="form-control" placeholder="Teléfono" name="telefono" value="+57 00000000"/>
+                                                        </div>
+                                                    </div>                                    
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="display-block text-bold">Género:</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" checked="checked" value="M" /> Soy un hombre.</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" value="F" /> Soy una mujer.</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Descripción:</label>
+                                                            <textarea placeholder="Descripción" class="form-control" name="descripcion">Soy un programador.</textarea>
+                                                        </div>
+                                                        <label><input type="checkbox" name="suscrito" /> Recibir notificaciones.</label>                                        
+                                                    </div>
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-primary cursor-pointer">Obtener datos y mostrar en consola</button>
+                                                    </div>
+                                                </div>                                                                
+                                            </form>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="console">
+                                                <div class="head-console">
+                                                    <div class="tab-console">
+                                                        <i class="fa fa-fw fa-terminal"></i> Consola
+                                                    </div>
+                                                </div>
+                                                <div class="body-console text-left" id="bodyConsole">
+                                                    <div class="bd-clipboard" id=""><button type="button" class="btn-clipboard" title="" data-original-title="Copiar al portapapeles">Copiar</button></div>
+                                                    <textarea id="textConsole"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="html" role="tabpanel" aria-labelledby="html-tab">
+                                    <textarea id="textCodeHTML"><form id="formExample1" class="text-left form-example">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Nombres:</label>
+                                                            <input type="text" placeholder="Nombr1es" class="form-control" name="nombres" value="John"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Apellidos:</label>
+                                                            <input type="text" placeholder="Apellidos" class="form-control" name="apellidos" value="Vanegas" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">País:</label>
+                                                            <select class="form-control" name="pais.codigo_pais">
+                                                                <option value="">Seleccione</option>
+                                                                <option value="CO" selected="selected">Colombia</option>
+                                                                <option value="ES">España</option>
+                                                                <option value="US">Estados Unidos</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Teléfono:</label>
+                                                            <input type="text" class="form-control" placeholder="Teléfono" name="telefono" value="+57 00000000"/>
+                                                        </div>
+                                                    </div>                                    
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="display-block text-bold">Género:</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" checked="checked" value="M" /> Soy un hombre.</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" value="F" /> Soy una mujer.</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Descripción:</label>
+                                                            &lt;textarea placeholder="Descripción" class="form-control" name="descripcion"&gt;Soy un programador.&lt;/textarea&gt;
+                                                        </div>
+                                                        <label><input type="checkbox" name="suscrito" /> Recibir notificaciones.</label>                                        
+                                                    </div>
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-primary cursor-pointer">Obtener datos y mostrar en consola</button>
+                                                    </div>
+                                                </div>                                                                
+                                            </form></textarea>
+                                </div>
+                                <div class="tab-pane fade" id="javascript" role="tabpanel" aria-labelledby="javascript-tab">
+                                    <textarea id="txtCodeJavascript">/** 
+    Con el prototipo ".getFormData()" se obtiene la información del formulario en un objeto. 
+    Las llaves de cada atributo del objeto serán los name (<input type="text" name="nombres" />) que se encuentren
+    en cada elemento (input,select,textarea,etc).
+*/
+
+//JQuery:
+$('#formExample1').on('submit', function (evento) {
+    evento.preventDefault();
+    var datos = $(this).getFormData();
+    console.log(datos);
+});
+
+//Vanilla Javascript:
+document.querySelector('#formExample1').addEventListener('submit', function (evento) {
+    evento.preventDefault();
+    var datos = this.getFormData();
+    console.log(datos);
+});</textarea>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="col-md-12 p-t-40 text-justify">
+                            <h3 class="m-t-35">Llenar un formulario <code>.fillForm(obj)</code></h3>
+                            <p class="fill-form">
+                                Para llenar un formulario con este prototipo, solo necesitará seleccionar el formulario o contenedor con JQuery o Vanilla Javascript e invocar el prototipo y pasar el objeto que contiene la información que desea pintar en el formulario, ejemplo: <code>.fillForm(obj)</code>.
+                                <br/>
+                                <br/>
+                                Al igual que antes solo tendrá que tener en cuenta que los <code>name=""</code> de sus elementos (input, select y/o textarea) sean nombrados como los keys de su objeto como se muestra a continuación.
+                                <textarea id="txtIntegracionFillForm" class="javascript-code">var obj = {
+        "nombres": "John",
+        "apellidos": "Vanegas",
+        "pais": {
+            "codigo_pais": "CO"
+        },
+        "telefono": "+57 00000000",
+        "genero": "M",
+        "descripcion": "Soy un programador.",
+        "suscrito": false
+    };
+    
+    //JQuery:
+    $('#formExample2').fillForm(obj);
+    //Vanilla Javascript:
+    document.querySelector('#formExample2').fillForm(obj);</textarea>
+                            </p>
+                        </div>
+                        <div class="col-md-12 text-left m-t-40 m-b-10">
+                            <h3>Ejemplo 2: (<code>.fillForm()</code>) Llenar formularios.</h3>
+                            <p>
+                                Con este prototipo podrás llenar un formulario a partir de un objeto. Para este ejemplo hemos usado el mismo formulario anterior y el objeto que inicialmente se ha mostrado en la consola para llenar el formulario.
+                                <br/>
+                                <br/>
+                                La parametrización del formulario para usar este prototipo (<code>.fillForm(obj)</code>) es exactamente la misma que la explicada en el ejemplo anterior (Ejemplo 1). 
+                            </p>
+                        </div>
+
+                        <div class="col-md-12">
+                            <ul class="nav nav-tabs code-tabs" id="myTab" role="tablist">
+                                <li class="nav-item">
+                                    <a class="nav-link active" id="home-tab" data-toggle="tab" href="#preview2" role="tab" aria-controls="home" aria-selected="true">Vista previa</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="html-tab2" data-toggle="tab" href="#html2" role="tab" aria-controls="home" aria-selected="true">HTML</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" id="javascript-tab2" data-toggle="tab" href="#javascript2" role="tab" aria-controls="javascript" aria-selected="false">Javascript</a>
+                                </li>
+                            </ul>
+                            <div class="tab-content text-left" id="myTabContent">
+                                <div class="tab-pane fade show active" id="preview2" role="tabpanel" aria-labelledby="home-tab">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <form id="formExample2" class="text-left form-example">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Nombres:</label>
+                                                            <input type="text" placeholder="Nombres" class="form-control" name="nombres" value="John" disabled="disabled"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Apellidos:</label>
+                                                            <input type="text" placeholder="Apellidos" class="form-control" name="apellidos" value="Vanegas" disabled="disabled"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">País:</label>
+                                                            <select class="form-control" name="pais.codigo_pais" disabled="disabled">
+                                                                <option value="">Seleccione</option>
+                                                                <option value="CO" selected="selected">Colombia</option>
+                                                                <option value="ES">España</option>
+                                                                <option value="US">Estados Unidos</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Teléfono:</label>
+                                                            <input type="text" class="form-control" placeholder="Teléfono" name="telefono" value="+57 00000000" disabled="disabled"/>
+                                                        </div>
+                                                    </div>                                    
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="display-block text-bold">Género:</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" checked="checked" value="M" disabled="disabled"/> Soy un hombre.</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" value="F" disabled="disabled" /> Soy una mujer.</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Descripción:</label>
+                                                            <textarea placeholder="Descripción" class="form-control" name="descripcion" disabled="disabled">Soy un programador.</textarea>
+                                                        </div>
+                                                        <label><input type="checkbox" name="suscrito" disabled="disabled" /> Recibir notificaciones.</label>                                        
+                                                    </div>
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-primary cursor-pointer">Actualizar Formulario</button>
+                                                    </div>
+                                                </div>                                                                
+                                            </form>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <div class="console">
+                                                <div class="head-console">
+                                                    <div class="tab-console">
+                                                        <i class="fa fa-fw fa-terminal"></i> Consola
+                                                    </div>
+                                                </div>
+                                                <div class="body-console text-left" id="bodyConsole2">
+                                                    <div class="bd-clipboard" id=""><button type="button" class="btn-clipboard" title="" data-original-title="Copiar al portapapeles">Copiar</button></div>
+                                                    <textarea id="textConsole2"></textarea>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="tab-pane fade" id="html2" role="tabpanel" aria-labelledby="html-tab">
+                                    <textarea id="textCodeHTML2"><form id="formExample2" class="text-left form-example">
+                                                <div class="row">
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Nombres:</label>
+                                                            <input type="text" placeholder="Nombr1es" class="form-control" name="nombres" value="John"/>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Apellidos:</label>
+                                                            <input type="text" placeholder="Apellidos" class="form-control" name="apellidos" value="Vanegas" />
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">País:</label>
+                                                            <select class="form-control" name="pais.codigo_pais">
+                                                                <option value="">Seleccione</option>
+                                                                <option value="CO" selected="selected">Colombia</option>
+                                                                <option value="ES">España</option>
+                                                                <option value="US">Estados Unidos</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-6">
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Teléfono:</label>
+                                                            <input type="text" class="form-control" placeholder="Teléfono" name="telefono" value="+57 00000000"/>
+                                                        </div>
+                                                    </div>                                    
+                                                    <div class="col-md-12">
+                                                        <div class="form-group">
+                                                            <label class="display-block text-bold">Género:</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" checked="checked" value="M" /> Soy un hombre.</label>
+                                                            <label class="display-block p-l-15"><input type="radio" name="genero" value="F" /> Soy una mujer.</label>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label class="text-bold">Descripción:</label>
+                                                            &lt;textarea placeholder="Descripción" class="form-control" name="descripcion"&gt;Soy un programador.&lt;/textarea&gt;
+                                                        </div>
+                                                        <label><input type="checkbox" name="suscrito" /> Recibir notificaciones.</label>                                        
+                                                    </div>
+                                                    <div class="col-md-12 text-right">
+                                                        <button class="btn btn-primary cursor-pointer">Obtener datos y mostrar en consola</button>
+                                                    </div>
+                                                </div>                                                                
+                                            </form></textarea>
+                                </div>
+                                <div class="tab-pane fade" id="javascript2" role="tabpanel" aria-labelledby="javascript-tab">
+                                    <textarea id="txtCodeJavascript2">/** 
+    Con el prototipo ".fillForm(obj)" se pinta información de un objeto en el formulario. 
+    En este caso hemos pasado un objeto quemado al hacer submit el formulario, en la vida real
+    deberíamos ejecutar el .fillForm(obj) y pasarle el objeto que recibamos de una petición Ajax u otra transacción.
+    Las llaves de cada atributo del objeto serán los name (<input type="text" name="nombres" />) que se encuentren
+    en cada elemento (input,select,textarea,etc).
+*/
+var obj = {
+    "nombres": "John",
+    "apellidos": "Vanegas",
+    "pais": {
+        "codigo_pais": "CO"
+    },
+    "telefono": "+57 00000000",
+    "genero": "M",
+    "descripcion": "Soy un programador.",
+    "suscrito": false
+};
+
+//JQuery:
+$('#formExample2').on('submit', function (evento) {
+    evento.preventDefault();
+    $(this).fillForm(obj);
+});
+
+//Vanilla Javascript:
+document.querySelector('#formExample2').addEventListener('submit', function (evento) {
+    evento.preventDefault();
+    this.fillForm(obj);
+});</textarea>
+                                </div>
+                            </div>                            
+                        </div>
+                        <div class="col-md-12 m-t-25 p-t-25 text-justify">
+                            <h3><i class="fa fa-fw fa-youtube-play"></i> Vídeo Tutorial</h3>
+                            <p>
+                                Si aún has quedado con dudas te recomiendo que veas el <a href="#">vídeo tutorial</a> que he preparado en nuestro canal <a href="https://www.youtube.com/deplyn" target="_blank">Deplyn</a> para más información.
+                                <br/>
+                                <br/>
+                                Espero os haya gustado este trabajo, te registras en nuestra <a href="https://www.deplyn.com/" target="_blank">comunidad</a> sigas el canal <a href="https://www.youtube.com/deplyn">Deplyn</a> y nos veamos en un próximo tutorial.
+                            </p>
+                        </div>                        
+                    </div>
+                </div>
+            </div>    
+        </main>
+        <footer>
+            <div class="container text-center">
+                <p>
+                    Desarrollado por <a href="http://starlly.com" target="_blank">Starlly</a>
+                </p>
+            </div>
+        </footer>
+
+        <script
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/codemirror.min.js" integrity="sha256-dPTL2a+npIonoK5i0Tyes0txCMUWZBf8cfKRfACRotc=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/addon/edit/matchbrackets.min.js" integrity="sha256-E6SXqOxC0Z+uAGQmS9gr9Furz8Py05kCgC0XZXg9Hdo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/javascript/javascript.min.js" integrity="sha256-7AjEsHnW7cpq2raC/uxnGCP2G4zIKmCdz7OAv6LN00o=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.48.4/mode/xml/xml.min.js" integrity="sha256-cphnEddX56MtGJsi1PoCPLds+dlnDj1QQkAlCWeJYDo=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/js-beautify/1.10.2/beautifier.min.js" integrity="sha256-CzP1N9lzGVyFQvdI7CsPO8rfHunoAtsmTvpEmbNB5H8=" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js" integrity="sha256-KsRuvuRtUVvobe66OFtOQfjP8WA2SzYsmm4VPfMnxms=" crossorigin="anonymous"></script>
+
+        <script src="assets/js/helperform.js" type="text/javascript"></script>
+        <script type="text/javascript" src="assets/js/js.js"></script>
+
+    </body>
+</html>
