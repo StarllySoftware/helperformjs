@@ -1,6 +1,4 @@
 ## HelperForm 1.0
-
-## Introducción:
 Llenar formularios y obtener información en objetos JSON.
 https://StarllySoftware.github.io/helperformjs/
 
